@@ -1,3 +1,4 @@
+using Core.Gameplay.Cameras;
 using Core.Gameplay.Touch;
 using UnityEngine;
 using Zenject;
@@ -10,6 +11,9 @@ namespace Core.Contexts
 
         [Header("Managers")]
         [SerializeField] private TouchManager touchManager;
+
+        [Header("Controllers")]
+        [SerializeField] private CameraController cameraController;
 
         #endregion
 
@@ -27,6 +31,11 @@ namespace Core.Contexts
         private void BindManagers()
         {
             Container.Bind<TouchManager>().FromComponentInNewPrefab(touchManager).AsSingle();
+        }
+
+        private void BindControllers()
+        {
+            Container.Bind<CameraController>().FromComponentInNewPrefab(cameraController).AsSingle();
         }
 
         #endregion
