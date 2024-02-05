@@ -1,3 +1,5 @@
+using Core.Gameplay.Touch;
+using UnityEngine;
 using Zenject;
 
 namespace Core.Contexts
@@ -6,7 +8,8 @@ namespace Core.Contexts
     {
         #region SERIALIZED_VARIABLES
 
-        //
+        [Header("Managers")]
+        [SerializeField] private TouchManager touchManager;
 
         #endregion
 
@@ -14,14 +17,17 @@ namespace Core.Contexts
 
         public override void InstallBindings()
         {
-            //
+            BindManagers();
         }
 
         #endregion
 
         #region PRIVATE_FUNCTIONS
 
-        //
+        private void BindManagers()
+        {
+            Container.Bind<TouchManager>().FromComponentInNewPrefab(touchManager).AsSingle();
+        }
 
         #endregion
     }
