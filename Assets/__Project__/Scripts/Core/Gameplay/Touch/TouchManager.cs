@@ -1,6 +1,6 @@
 using System;
-using UniRx;
 using UnityEngine;
+using UniRx;
 
 namespace Core.Gameplay.Touch
 {
@@ -32,14 +32,9 @@ namespace Core.Gameplay.Touch
 
         #region MONO
 
-        private void Awake()
-        {
-            Input.multiTouchEnabled = false;
-        }
-
         private void Start()
         {
-            StartTouchDetection();
+            Init();
         }
 
         #endregion
@@ -91,6 +86,20 @@ namespace Core.Gameplay.Touch
 
             Debug.Log("On Up");
             OnUp?.Invoke();
+        }
+
+        private void Init()
+        {
+            Debug.Log("TouchManager -> Init()");
+
+            DisableMultiTouch();
+
+            StartTouchDetection();
+        }
+
+        private void DisableMultiTouch()
+        {
+            Input.multiTouchEnabled = false;
         }
 
         private void StartTouchDetection()
