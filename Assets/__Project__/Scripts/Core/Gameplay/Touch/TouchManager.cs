@@ -106,7 +106,6 @@ namespace Core.Gameplay.Touch
         {
             _touchDetectionDisposable ??= Observable
                 .EveryUpdate()
-                .Repeat()
                 .Subscribe(_ =>
                 {
                     CheckForTouch();
