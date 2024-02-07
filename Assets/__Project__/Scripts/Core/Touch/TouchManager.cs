@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UniRx;
 
-namespace Core.Gameplay.Touch
+namespace Core.Touch
 {
     public class TouchManager : MonoBehaviour
     {
